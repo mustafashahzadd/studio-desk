@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: studio-desk-api
+    env: python
+    region: oregon
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: BAND_AGENT_ID
+        sync: false
+      - key: BAND_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: THUMBNAILER_AGENT_ID
+        sync: false

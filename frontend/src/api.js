@@ -1,4 +1,6 @@
-const BASE = '/api'
+// In production, set VITE_API_BASE_URL to your backend URL (e.g. https://your-app.onrender.com)
+const API_ORIGIN = import.meta.env.VITE_API_BASE_URL || ''
+const BASE = `${API_ORIGIN}/api`
 
 export async function createJob(url, title) {
   const res = await fetch(`${BASE}/jobs`, {
@@ -50,8 +52,10 @@ export function allClipsZipUrl(jobId) {
 
 /** Open a WebSocket to stream real-time events for a job. */
 export function openJobSocket(jobId, onMessage) {
-  const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws'
-  const ws = new WebSocket(`${protocol}://${window.location.host}/ws/${jobId}`)
+  const wsOrigin = API_ORIGIN
+    ? API_ORIGIN.replace(/^http/, 'ws')
+    : `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}`
+  const ws = new WebSocket(`${wsOrigin}/ws/${jobId}`)
 
   ws.onmessage = (e) => {
     try {
