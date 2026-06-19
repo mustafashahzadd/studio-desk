@@ -1,0 +1,14 @@
+[project]
+name = "videotranscriber"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "band-sdk[pydanticai]>=1.0.0",
+    "ffmpeg-python>=0.2.0",
+    "groq>=1.4.0",
+    "openai>=2.41.1",
+    "pydantic-ai>=1.107.0",
+    "yt-dlp>=2026.6.9",
+]

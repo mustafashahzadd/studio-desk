@@ -1,0 +1,39 @@
+# ── Python ────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.venv/
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# ── Generated media files (produced by agents) ────
+reel_*.mp4
+clip_*.mp4
+temp_video_*.mp4
+thumbnail_*.jpg
+thumbnail_*.png
+
+# ── Node / Frontend ───────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ── OS ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ────────────────────────────────────────
+.vscode/settings.json
+*.swp
+*.swo
+
+# ── Secrets (keep template, never actual .env) ────
+.env
+!env.template
